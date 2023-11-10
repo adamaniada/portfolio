@@ -16,9 +16,6 @@
             "use": "@vercel/static"
         }
     ],
-    "build": {
-        "command": "npm run build"
-    },
     "routes": [
         {
           "src": "/(.*)",
