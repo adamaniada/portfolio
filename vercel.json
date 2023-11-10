@@ -1,5 +1,4 @@
 {
-    "app": "mon-site-web",
     "framework": "none",
     "build": {
         "command": "npm run build"
