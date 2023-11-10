@@ -1,13 +1,31 @@
 {
+    "name": "PORTFOLIO",
+    "version": 2,
     "framework": "none",
+    "builds": [
+        {
+          "src": "index.html",
+          "use": "@vercel/static"
+        },
+        {
+          "src": "styles.css",
+          "use": "@vercel/static"
+        },
+        {
+            "src": "script.js",
+            "use": "@vercel/static"
+        }
+    ],
     "build": {
         "command": "npm run build"
     },
-    "output": {
-        "publicPath": "/"
-    },
+    "routes": [
+        {
+          "src": "/(.*)",
+          "dest": "/$1"
+        }
+    ],
     "env": {
         "NODE_ENV": "production"
     }
 }
-  
