@@ -1,7 +1,6 @@
 {
     "name": "PORTFOLIO",
     "version": 2,
-    "framework": "none",
     "builds": [
         {
           "src": "index.html",
