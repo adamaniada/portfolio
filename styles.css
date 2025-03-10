@@ -60,7 +60,7 @@ header p {
 }
 
 .social-icons a:hover {
-  color: #2575fc;
+  color: #ffdd44; /* Changed for better visibility */
 }
 
 section {
@@ -153,7 +153,6 @@ strong {
   color: #6a11cb;
   font-weight: 600;
 }
-
 
 .project img {
   max-width: 100%;
