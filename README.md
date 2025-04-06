@@ -193,4 +193,4 @@ Lycée Départemental Saint Joseph - 2020
 
 Merci de visiter mon portfolio ! N'hésitez pas à me contacter pour toute question ou opportunité de collaboration.
 
-git add . && git commit -m "Commit 1.1.5" && git branch -M main && git push -u origin main
+git add . && git commit -m "Commit 1.1.6" && git branch -M main && git push -u origin main
