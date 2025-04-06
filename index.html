@@ -1,323 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de NIADA Adama, développeur full stack spécialisé en développement web, mobile et API.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <title>NIADA Adama - Développeur Full Stack</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de NIADA Adama, développeur full stack spécialisé en développement web, mobile et API.">
+  <title>NIADA Adama - Développeur Full Stack</title>
+  <!-- Importation des polices et de Tailwind CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Animation d'apparition personnalisée */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Boutons et interactions */
+    .btn {
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    /* Navigation fixe et effet ombre */
+    nav {
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    /* Effets de survol pour les cartes de projet */
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    /* Transitions de couleurs pour le changement de thème */
+    body.dark-mode {
+      background-color: #1a202c;
+      color: #cbd5e0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body.dark-mode .btn {
+      background-color: #2d3748;
+      color: #cbd5e0;
+    }
+    body.dark-mode .btn:hover {
+      background-color: #4a5568;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Barre de navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="#home" class="text-2xl font-bold">NIADA Adama</a>
+      <ul class="flex space-x-6">
+        <li><a href="#about" class="hover:underline">À propos</a></li>
+        <li><a href="#skills" class="hover:underline">Compétences</a></li>
+        <li><a href="#projects" class="hover:underline">Projets</a></li>
+        <li><a href="#experience" class="hover:underline">Expérience</a></li>
+        <li><a href="#education" class="hover:underline">Formation</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <header>
-        <div class="header-content">
-            <h1>NIADA Adama</h1>
-            <p>Développeur Full Stack</p>
-            <div class="social-icons">
-                <a href="https://linkedin.com/in/adamaniada" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/adamaniada" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://facebook.com/adama.niada.142" target="_blank"><i class="fab fa-facebook"></i></a>
-            </div>
+  <!-- Header -->
+  <header id="home" class="pt-24 pb-12 bg-gradient-to-r from-indigo-700 to-purple-600 text-white text-center">
+    <div class="container mx-auto">
+      <h1 class="text-5xl font-extrabold mb-4 fade-in">NIADA Adama</h1>
+      <p class="text-2xl mb-6 fade-in">Développeur Full Stack & Créateur d'Expériences Digitales</p>
+      <div class="flex justify-center space-x-4 fade-in">
+        <a href="https://linkedin.com/in/adamaniada" target="_blank" class="btn p-3 bg-white text-indigo-700 rounded-full shadow-lg hover:bg-gray-100">
+          <i class="fab fa-linkedin text-2xl"></i>
+        </a>
+        <a href="https://github.com/adamaniada" target="_blank" class="btn p-3 bg-white text-gray-800 rounded-full shadow-lg hover:bg-gray-100">
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+        <a href="https://facebook.com/adama.niada.142" target="_blank" class="btn p-3 bg-white text-blue-600 rounded-full shadow-lg hover:bg-gray-100">
+          <i class="fab fa-facebook text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section À propos -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-6 fade-in">À propos de moi</h2>
+      <p class="text-xl leading-relaxed fade-in">
+        Spécialiste en infrastructures numériques avec une expertise en DevOps, sécurité informatique et administration de systèmes.
+        Expérience dans la gestion et l’optimisation des infrastructures cloud (Docker, Kubernetes), l’automatisation des déploiements CI/CD et la sécurisation des systèmes.
+        Capable d’optimiser la fiabilité, la scalabilité et la sécurité des architectures numériques.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section Compétences -->
+  <section id="skills" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 fade-in">Compétences</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Développement logiciel -->
+        <div class="fade-in p-6 border rounded-lg shadow-sm hover:shadow-lg transition">
+          <h3 class="text-2xl font-semibold mb-3">Développement logiciel</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Web :</strong> Sites responsives, API RESTful, CMS & SEO</li>
+            <li><strong>Mobile :</strong> iOS, Android, React Native, Flutter</li>
+            <li><strong>Bureautique :</strong> Applications multiplateformes</li>
+            <li><strong>Jeux :</strong> 2D/3D avec Unity & Unreal</li>
+            <li><strong>Embarqué :</strong> Firmware, microcontrôleurs & IoT</li>
+          </ul>
         </div>
-    </header>
-
-    <section id="about">
-        <div class="section-content">
-            <h2>À propos de moi</h2>
-            <p>Je suis NIADA Adama, un développeur full stack chevronné avec une expertise approfondie dans le développement d'API, d'applications web, mobiles et bureautiques. Grâce à ma polyvalence et à ma maîtrise de diverses technologies, je suis capable de répondre à presque tous les besoins de vos projets.</p>
+        <!-- Langages -->
+        <div class="fade-in p-6 border rounded-lg shadow-sm hover:shadow-lg transition">
+          <h3 class="text-2xl font-semibold mb-3">Langages de programmation</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>HTML5, CSS, JavaScript</li>
+            <li>Java, Python, PHP</li>
+            <li>React, Vue.js, Node.js</li>
+            <li>C, C++, C#</li>
+            <li>Kotlin, Dart</li>
+          </ul>
         </div>
-    </section>
-
-    <section id="skills">
-        <div class="section-content">
-            <h2>Compétences</h2>
-            <ul>
-                <li><strong>Développement logiciel :</strong>
-                    <ol>
-                        <li>Développement Web
-                            <ul>
-                                <li>Création de sites web responsives</li>
-                                <li>Développement d'applications web dynamiques</li>
-                                <li>Intégration de CMS (WordPress, Joomla, etc.)</li>
-                                <li>Optimisation SEO</li>
-                                <li>Développement d'API RESTful</li>
-                            </ul>
-                        </li>
-                        <li>Développement d'Applications Mobiles
-                            <ul>
-                                <li>Développement d'applications natives (iOS, Android)</li>
-                                <li>Développement d'applications hybrides (React Native, Flutter)</li>
-                                <li>Intégration de services backend</li>
-                                <li>Optimisation des performances mobiles</li>
-                                <li>Développement d'applications multiplateformes</li>
-                            </ul>
-                        </li>
-                        <li>Développement d'Applications Bureautiques
-                            <ul>
-                                <li>Développement d'applications de bureau pour Windows</li>
-                                <li>Développement d'applications de bureau pour macOS</li>
-                                <li>Développement d'applications de bureau pour Linux</li>
-                                <li>Intégration de bases de données locales</li>
-                                <li>Développement d'applications de bureau multiplateformes</li>
-                            </ul>
-                        </li>
-                        <li>Développement de Jeux Vidéo
-                            <ul>
-                                <li>Développement de jeux 2D et 3D</li>
-                                <li>Utilisation de moteurs de jeu (Unity, Unreal Engine)</li>
-                                <li>Création de mécaniques de jeu</li>
-                                <li>Développement de jeux pour mobiles</li>
-                                <li>Développement de jeux pour consoles</li>
-                            </ul>
-                        </li>
-                        <li>Développement de Logiciels Embarqués
-                            <ul>
-                                <li>Développement de firmware</li>
-                                <li>Programmation de microcontrôleurs</li>
-                                <li>Intégration de capteurs et actuateurs</li>
-                                <li>Développement de systèmes embarqués en temps réel</li>
-                                <li>Optimisation de la consommation d'énergie</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </li>
-                <li><strong>Langages de programmation :</strong>
-                    <ol>
-                        <li>HTML5</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>PHP</li>
-                        <li>React</li>
-                        <li>Vue.js</li>
-                        <li>C</li>
-                        <li>C++</li>
-                        <li>C#</li>
-                        <li>Kotlin</li>
-                        <li>Dart</li>
-                    </ol>
-                </li>
-                <li><strong>Outils et technologies :</strong>
-                    <ol>
-                        <li>API
-                            <ul>
-                                <li>RESTful APIs</li>
-                                <li>GraphQL</li>
-                                <li>SOAP</li>
-                                <li>WebSockets</li>
-                            </ul>
-                        </li>
-                        <li>Git
-                            <ul>
-                                <li>GitHub</li>
-                                <li>GitLab</li>
-                                <li>Bitbucket</li>
-                                <li>Git Flow</li>
-                            </ul>
-                        </li>
-                        <li>Cloud computing
-                            <ul>
-                                <li>AWS</li>
-                                <li>Google Cloud Platform</li>
-                                <li>Microsoft Azure</li>
-                                <li>Heroku</li>
-                                <li>Docker</li>
-                                <li>Kubernetes</li>
-                            </ul>
-                        </li>
-                        <li>Node.js
-                            <ul>
-                                <li>Express.js</li>
-                                <li>NestJS</li>
-                                <li>Socket.io</li>
-                                <li>Passport.js</li>
-                            </ul>
-                        </li>
-                        <li>Laravel
-                            <ul>
-                                <li>Eloquent ORM</li>
-                                <li>Blade Templates</li>
-                                <li>Laravel Mix</li>
-                                <li>Laravel Sanctum</li>
-                            </ul>
-                        </li>
-                        <li>React Native
-                            <ul>
-                                <li>Expo</li>
-                                <li>Redux</li>
-                                <li>React Navigation</li>
-                                <li>React Native Paper</li>
-                            </ul>
-                        </li>
-                        <li>Django
-                            <ul>
-                                <li>Django REST Framework</li>
-                                <li>Django Channels</li>
-                                <li>Django Admin</li>
-                                <li>Django Templates</li>
-                            </ul>
-                        </li>
-                        <li>Flutter
-                            <ul>
-                                <li>Dart</li>
-                                <li>Firebase</li>
-                                <li>Provider</li>
-                                <li>Bloc</li>
-                            </ul>
-                        </li>
-                        <li>Bases de données
-                            <ul>
-                                <li>MySQL</li>
-                                <li>PostgreSQL</li>
-                                <li>MongoDB</li>
-                                <li>SQLite</li>
-                                <li>Redis</li>
-                            </ul>
-                        </li>
-                        <li>Outils de développement
-                            <ul>
-                                <li>Visual Studio Code</li>
-                                <li>IntelliJ IDEA</li>
-                                <li>PyCharm</li>
-                                <li>Postman</li>
-                                <li>JIRA</li>
-                            </ul>
-                        </li>
-                        <li>Outils de CI/CD
-                            <ul>
-                                <li>Jenkins</li>
-                                <li>Travis CI</li>
-                                <li>CircleCI</li>
-                                <li>GitHub Actions</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </li>
+        <!-- Outils & Technologies -->
+        <div class="fade-in p-6 border rounded-lg shadow-sm hover:shadow-lg transition md:col-span-2">
+          <h3 class="text-2xl font-semibold mb-3">Outils & Technologies</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>API :</strong> REST, GraphQL, SOAP, WebSockets</li>
+              <li><strong>Versionning :</strong> Git (GitHub, GitLab, Bitbucket)</li>
+              <li><strong>Cloud :</strong> AWS, Google Cloud, Azure, Heroku, Hostinger, Digital Ocean, OVH Cloud</li>
             </ul>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>Frameworks :</strong> Laravel, Django, Express, NestJS, Angular, Spring Boot, Symfony</li>
+              <li><strong>Mobile :</strong> Expo, React Native, Flutter</li>
+              <li><strong>CI/CD :</strong> Jenkins, Travis CI, CircleCI, GitHub Actions</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects" class="parallax">
-        <div class="section-content">
-            <h2>Mes Projets</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <img src="project1.jpg" alt="Projet 1">
-                    <h3>Projet 1</h3>
-                    <p>Description du projet 1...</p>
-                </div>
-                <div class="project">
-                    <img src="project2.jpg" alt="Projet 2">
-                    <h3>Projet 2</h3>
-                    <p>Description du projet 2...</p>
-                </div>
-                <!-- Ajoutez d'autres projets ici -->
-            </div>
+  <!-- Section Projets -->
+  <section id="projects" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-10 fade-in">Mes Projets</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Projet 1 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 1" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Juga Privacy</h3>
+            <p class="text-gray-700 mb-4">Un outil qui aide les entreprises à évaluer et à améliorer leur conformité aux réglementations en matière de protection des données.</p>
+            <a href="https://github.com/adamaniada/juga_privacy" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
         </div>
-    </section>
-
-    <section id="experience">
-        <div class="section-content">
-            <h2>Expérience Professionnelle</h2>
-            <div class="experience-item">
-                <h3>Développeur Web chez YANKTECH</h3>
-                <p>Développement de sites web, documentation technique, maintenance des applications logicielles...</p>
-            </div>
-            <div class="experience-item">
-                <h3>Développeur Mobile Freelance</h3>
-                <p>Développement d'une plateforme mobile, web et API pour demande de messe...</p>
-            </div>
-            <div class="experience-item">
-                <h3>Développeur Full Stack au Ministère de l'Agriculture - DSI</h3>
-                <p>Développement d'une plateforme pour la BUNASOLS (Bureau National des Sols)...</p>
-            </div>
-            <div class="experience-item">
-                <h3>Développeur Full Stack chez Gandyam Ligdi</h3>
-                <p>Conception d'une API de gestion des taux de change (Express.js, MongoDB)...</p>
-            </div>
-            <div class="experience-item">
-                <h3>Développeur Full Stack Freelance chez Digit Yamb Hub</h3>
-                <p>Conception d'une application mobile du nom de taxi jaune...</p>
-            </div>
-            <!-- Ajoutez d'autres expériences ici -->
+        <!-- Projet 2 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 2" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">PredictFoot</h3>
+            <p class="text-gray-700 mb-4">Découvrez des prédictions de scores de matchs de football passionnants ! Notre site utilise des modèles avancés pour vous offrir des prédictions fiables.</p>
+            <a href="https://github.com/adamaniada/PredictFoot" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
         </div>
-    </section>
-
-    <section id="education">
-        <div class="section-content">
-            <h2>Formation</h2>
-            <div class="education-item">
-                <h3>Développeurs fullstack Laravel & Symfony</h3>
-                <p>Orange Digital Center (<a href="https://www.orangedigitalcenters.com/country/BF/home" target="_blank">ODC</a>) - 2022</p>
-            </div>
-            <div class="education-item">
-                <h3>Entrepreneuriat et Techniques de Recherche d'Emploi</h3>
-                <p>Agence Nationale pour l'Emploi (<a href="http://www.onef.gov.bf/politique/anpe.php" target="_blank">ANPE</a>) - Oct 2021</p>
-            </div>
-            <div class="education-item">
-                <h3>Art Oratoire, Gestion du temps et Leadership</h3>
-                <p>La Structure de Formation d'Information et de Communication (<a href="https://m.facebook.com/p/Lasfic-Officiel-100065324956987/" target="_blank">LASFIC</a>) - 2021</p>
-            </div>
-            <div class="education-item">
-                <h3>Baccalauréat série D</h3>
-                <p>Lycée Départemental Saint Joseph - 2020</p>
-            </div>
+        <!-- Projet 3 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 3" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Phone Location</h3>
+            <p class="text-gray-700 mb-4">Un script Python qui récupère des informations sur un numéro de téléphone, y compris sa géolocalisation et son fournisseur de services, et les affiche sur une carte.</p>
+            <a href="https://github.com/adamaniada/phone-location" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
         </div>
-    </section>
-
-    <section id="testimonials">
-        <div class="section-content">
-            <h2>Témoignages</h2>
-            <div class="testimonial">
-                <p>"Adama est un développeur exceptionnel avec une grande attention aux détails."</p>
-                <h4>- Client Satisfait</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Son travail est toujours de haute qualité et livré à temps."</p>
-                <h4>- Collègue de Travail</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Adama a une capacité incroyable à comprendre les besoins du projet et à les traduire en solutions techniques efficaces."</p>
-                <h4>- Chef de Projet</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Sa maîtrise des technologies modernes et son approche proactive font de lui un atout précieux pour toute équipe."</p>
-                <h4>- Directeur Technique</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Adama est non seulement un excellent développeur, mais aussi un formidable mentor pour les jeunes talents."</p>
-                <h4>- Stagiaire</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Son professionnalisme et son engagement envers l'excellence sont vraiment inspirants."</p>
-                <h4>- Partenaire Commercial</h4>
-            </div>
-            <!-- Ajoutez d'autres témoignages ici -->
+        <!-- Projet 4 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 4" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Campus Archive</h3>
+            <p class="text-gray-700 mb-4">Explorez notre Campus Archive, une collection numérique organisée d'anciens devoirs étudiants. Suivez l'évolution des connaissances et trouvez l'inspiration à chaque clic.</p>
+            <a href="https://github.com/adamaniada/CampusArchive" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
         </div>
-    </section>
-
-    <section id="contact">
-        <div class="section-content">
-            <h2>Contact</h2>
-            <p>Email : <a href="mailto:adamaniadabf@gmail.com" target="_blank">adamaniadabf@gmail.com</a></p>
-            <p>LinkedIn : <a href="https://linkedin.com/in/adamaniada" target="_blank">linkedin.com/in/adamaniada</a></p>
-            <p>GitHub : <a href="https://github.com/adamaniada" target="_blank">https://github.com/adamaniada</a></p>
-            <p>Facebook : <a href="https://facebook.com/adama.niada.142" target="_blank">https://facebook.com/adama.niada.142</a></p>
+        <!-- Projet 5 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 5" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">E-Proces</h3>
+            <p class="text-gray-700 mb-4">Automatisez, gérez et optimisez vos flux de travail avec notre plateforme de gestion de processus en ligne. Simplifiez la collaboration, suivez en temps réel et améliorez l'efficacité.</p>
+            <a href="https://github.com/adamaniada/E-Proces" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
         </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; <span id="currentYear"></span> Adama NIADA. Tous droits réservés.</p>
+        <!-- Projet 6 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 6" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Patronyme</h3>
+            <p class="text-gray-700 mb-4">Projet "Patronyme" sur GitHub : Numérisation novatrice des noms. Utilise l'IA et le traitement du langage naturel pour moderniser la gestion, simplifier la saisie et la recherche des patronymes.</p>
+            <a href="https://github.com/adamaniada/patronyme" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-    <script src="script.js"></script>
+  <!-- Section Expérience Professionnelle -->
+  <section id="experience" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 fade-in">Expérience Professionnelle</h2>
+      <div class="space-y-8">
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Web chez YANKTECH</h3>
+          <p class="mt-2 text-gray-700">Création et maintenance de sites web ainsi que de documentations techniques.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+            <h3 class="text-2xl font-bold">Développeur Web chez YANKTECH</h3>
+            <p class="mt-2 text-gray-700">Création et maintenance de sites web ainsi que de documentations techniques.</p>
+          </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Mobile Freelance</h3>
+          <p class="mt-2 text-gray-700">Réalisation d'une plateforme mobile et API dédiée aux demandes de messe.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Full Stack au Ministère de l'Agriculture - DSI</h3>
+          <p class="mt-2 text-gray-700">Conception d'une plateforme pour la gestion de la BUNASOLS.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Full Stack chez Gandyam Ligdi</h3>
+          <p class="mt-2 text-gray-700">Création d'une API de gestion des taux de change avec Express.js et MongoDB.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Full Stack Freelance chez Digit Yamb Hub</h3>
+          <p class="mt-2 text-gray-700">Développement d'une application mobile innovante « taxi jaune ».</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Formation -->
+  <section id="education" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 fade-in">Formation</h2>
+      <div class="space-y-8">
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Développeurs Fullstack Laravel & Symfony</h3>
+          <p class="mt-2"><span class="font-semibold">Orange Digital Center</span> (<a href="https://www.orangedigitalcenters.com/country/BF/home" target="_blank" class="text-blue-600 hover:underline">ODC</a>) - 2022</p>
+        </div>
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Entrepreneuriat et Techniques de Recherche d'Emploi</h3>
+          <p class="mt-2"><span class="font-semibold">Agence Nationale pour l'Emploi</span> (<a href="http://www.onef.gov.bf/politique/anpe.php" target="_blank" class="text-blue-600 hover:underline">ANPE</a>) - Octobre 2021</p>
+        </div>
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Art Oratoire, Gestion du Temps et Leadership</h3>
+          <p class="mt-2"><span class="font-semibold">La Structure de Formation d'Information et de Communication</span> (<a href="https://m.facebook.com/p/Lasfic-Officiel-100065324956987/" target="_blank" class="text-blue-600 hover:underline">LASFIC</a>) - 2021</p>
+        </div>
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Baccalauréat Série D</h3>
+          <p class="mt-2">Lycée Départemental Saint Joseph - 2020</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Contact -->
+  <section id="contact" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-6 fade-in">Contact</h2>
+      <p class="text-lg fade-in">Email : <a href="mailto:adamaniadabf@gmail.com" class="text-blue-600 hover:underline">adamaniadabf@gmail.com</a></p>
+      <p class="text-lg fade-in">LinkedIn : <a href="https://linkedin.com/in/adamaniada" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/adamaniada</a></p>
+      <p class="text-lg fade-in">GitHub : <a href="https://github.com/adamaniada" target="_blank" class="text-blue-600 hover:underline">github.com/adamaniada</a></p>
+      <p class="text-lg fade-in">Facebook : <a href="https://facebook.com/adamaniadabf" target="_blank" class="text-blue-600 hover:underline">facebook.com/adamaniadabf</a></p>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="py-6 bg-gradient-to-r from-indigo-600 to-blue-500 text-white text-center">
+    <div class="container mx-auto">
+      <p>&copy; <span id="currentYear"></span> NIADA Adama. Tous droits réservés.</p>
+      <button id="themeToggle" class="mt-4 px-4 py-2 bg-gray-200 text-gray-800 rounded btn hover:scale-105 transition">
+        Changer de thème
+      </button>
+    </div>
+  </footer>
+
+  <!-- Scripts JavaScript -->
+  <script>
+    // Actualisation de l'année
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Ombre de la navigation au scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mode sombre / clair
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggle.textContent = "Mode clair";
+        themeToggle.classList.replace('bg-gray-200','bg-gray-700');
+        themeToggle.classList.replace('text-gray-800','text-gray-100');
+      } else {
+        themeToggle.textContent = "Changer de thème";
+        themeToggle.classList.replace('bg-gray-700','bg-gray-200');
+        themeToggle.classList.replace('text-gray-100','text-gray-800');
+      }
+    });
+
+    // Animation d'apparition avec Intersection Observer
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeInElements.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
