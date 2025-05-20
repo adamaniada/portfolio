@@ -3,251 +3,365 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de NIADA Adama, développeur full stack spécialisé en développement web, mobile et API.">
   <title>NIADA Adama - Développeur Full Stack</title>
-  <!-- Inclure jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Importation des polices et de Tailwind CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    /* Animation d'apparition personnalisée */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Boutons et interactions */
+    .btn {
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    /* Navigation fixe et effet ombre */
+    nav {
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    /* Effets de survol pour les cartes de projet */
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    /* Transitions de couleurs pour le changement de thème */
+    body.dark-mode {
+      background-color: #1a202c;
+      color: #cbd5e0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body.dark-mode .btn {
+      background-color: #2d3748;
+      color: #cbd5e0;
+    }
+    body.dark-mode .btn:hover {
+      background-color: #4a5568;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- Inclure le header -->
-  <div id="header"></div>
+  <!-- Barre de navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="#home" class="text-2xl font-bold">NIADA Adama</a>
+      <div class="flex items-center space-x-6">
+        <ul class="flex space-x-6">
+          <li><a href="#about" class="hover:underline">À propos</a></li>
+          <li><a href="#skills" class="hover:underline">Compétences</a></li>
+          <li><a href="#projects" class="hover:underline">Projets</a></li>
+          <li><a href="#experience" class="hover:underline">Expérience</a></li>
+          <li><a href="#education" class="hover:underline">Formation</a></li>
+          <li><a href="#contact" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <!-- Inclure la section À propos -->
-  <div id="about"></div>
+  <!-- Header -->
+  <header id="home" class="pt-24 pb-12 bg-gradient-to-r from-indigo-700 to-purple-600 text-white text-center">
+    <div class="container mx-auto">
+      <h1 class="text-5xl font-extrabold mb-4 fade-in">NIADA Adama</h1>
+      <p class="text-2xl mb-6 fade-in">Développeur Full Stack & Créateur d'Expériences Digitales</p>
+      <div class="flex justify-center space-x-4 fade-in">
+        <a href="https://linkedin.com/in/adamaniada" target="_blank" class="btn p-3 bg-white text-indigo-700 rounded-full shadow-lg hover:bg-gray-100">
+          <i class="fab fa-linkedin text-2xl"></i>
+        </a>
+        <a href="https://github.com/adamaniada" target="_blank" class="btn p-3 bg-white text-gray-800 rounded-full shadow-lg hover:bg-gray-100">
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+        <a href="https://facebook.com/adama.niada.142" target="_blank" class="btn p-3 bg-white text-blue-600 rounded-full shadow-lg hover:bg-gray-100">
+          <i class="fab fa-facebook text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </header>
 
-  <!-- Inclure la section Compétences -->
-  <div id="skills"></div>
+  <!-- Section À propos -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-6 fade-in">À propos de moi</h2>
+      <p class="text-xl leading-relaxed fade-in">
+        Spécialiste en infrastructures numériques avec une expertise en DevOps, sécurité informatique et administration de systèmes.
+        Expérience dans la gestion et l’optimisation des infrastructures cloud (Docker, Kubernetes), l’automatisation des déploiements CI/CD et la sécurisation des systèmes.
+        Capable d’optimiser la fiabilité, la scalabilité et la sécurité des architectures numériques.
+      </p>
+    </div>
+  </section>
 
-  <!-- Inclure la section Projets -->
-  <div id="projects"></div>
+  <!-- Section Compétences -->
+  <section id="skills" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 fade-in">Compétences</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Développement logiciel -->
+        <div class="fade-in p-6 border rounded-lg shadow-sm hover:shadow-lg transition">
+          <h3 class="text-2xl font-semibold mb-3">Développement logiciel</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>Web :</strong> Sites responsives, API RESTful, CMS & SEO</li>
+            <li><strong>Mobile :</strong> iOS, Android, React Native, Flutter</li>
+            <li><strong>Bureautique :</strong> Applications multiplateformes</li>
+            <li><strong>Jeux :</strong> 2D/3D avec Unity & Unreal</li>
+            <li><strong>Embarqué :</strong> Firmware, microcontrôleurs & IoT</li>
+          </ul>
+        </div>
+        <!-- Langages -->
+        <div class="fade-in p-6 border rounded-lg shadow-sm hover:shadow-lg transition">
+          <h3 class="text-2xl font-semibold mb-3">Langages de programmation</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>HTML5, CSS, JavaScript</li>
+            <li>Java, Python, PHP</li>
+            <li>React, Vue.js, Node.js</li>
+            <li>C, C++, C#</li>
+            <li>Kotlin, Dart</li>
+          </ul>
+        </div>
+        <!-- Outils & Technologies -->
+        <div class="fade-in p-6 border rounded-lg shadow-sm hover:shadow-lg transition md:col-span-2">
+          <h3 class="text-2xl font-semibold mb-3">Outils & Technologies</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>API :</strong> REST, GraphQL, SOAP, WebSockets</li>
+              <li><strong>Versionning :</strong> Git (GitHub, GitLab, Bitbucket)</li>
+              <li><strong>Cloud :</strong> AWS, Google Cloud, Azure, Heroku, Hostinger, Digital Ocean, OVH Cloud</li>
+            </ul>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>Frameworks :</strong> Laravel, Django, Express, NestJS, Angular, Spring Boot, Symfony</li>
+              <li><strong>Mobile :</strong> Expo, React Native, Flutter</li>
+              <li><strong>CI/CD :</strong> Jenkins, Travis CI, CircleCI, GitHub Actions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Inclure la section Expérience -->
-  <div id="experience"></div>
+  <!-- Section Projets -->
+  <section id="projects" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-10 fade-in">Mes Projets</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Projet 4 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 4" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Campus Archive</h3>
+            <p class="text-gray-700 mb-4">Explorez notre Campus Archive, une collection numérique organisée d'anciens devoirs étudiants. Suivez l'évolution des connaissances et trouvez l'inspiration à chaque clic.</p>
+            <a href="https://github.com/adamaniada/CampusArchive" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 14 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 14" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Django API Rest Framework</h3>
+            <p class="text-gray-700 mb-4">Une API REST avec Django.</p>
+            <a href="https://github.com/adamaniada/django_api_rest_framework" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 13 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 13" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Django Todo</h3>
+            <p class="text-gray-700 mb-4">Une application de gestion de tâches avec Django.</p>
+            <a href="https://github.com/adamaniada/django_todo" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 10 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 10" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Facture Express</h3>
+            <p class="text-gray-700 mb-4">Une application pour la gestion des factures.</p>
+            <a href="https://github.com/adamaniada/Facture-Express" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 1 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 1" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Juga Privacy</h3>
+            <p class="text-gray-700 mb-4">Un outil qui aide les entreprises à évaluer et à améliorer leur conformité aux réglementations en matière de protection des données.</p>
+            <a href="https://github.com/adamaniada/juga_privacy" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 12 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 12" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Socket.io Chat Bot</h3>
+            <p class="text-gray-700 mb-4">Un chatbot utilisant Socket.io.</p>
+            <a href="https://github.com/adamaniada/socket.io_chat_bot" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 6 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 6" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Patronyme</h3>
+            <p class="text-gray-700 mb-4">Projet "Patronyme" sur GitHub : Numérisation novatrice des noms. Utilise l'IA et le traitement du langage naturel pour moderniser la gestion, simplifier la saisie et la recherche des patronymes.</p>
+            <a href="https://github.com/adamaniada/patronyme" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 3 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 3" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Phone Location</h3>
+            <p class="text-gray-700 mb-4">Un script Python qui récupère des informations sur un numéro de téléphone, y compris sa géolocalisation et son fournisseur de services, et les affiche sur une carte.</p>
+            <a href="https://github.com/adamaniada/phone-location" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 2 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 2" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">PredictFoot</h3>
+            <p class="text-gray-700 mb-4">Découvrez des prédictions de scores de matchs de football passionnants ! Notre site utilise des modèles avancés pour vous offrir des prédictions fiables.</p>
+            <a href="https://github.com/adamaniada/PredictFoot" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 11 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 11" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Python Dictionnary Password Generator</h3>
+            <p class="text-gray-700 mb-4">Génération d'un dictionnaire de mots de passe en Python.</p>
+            <a href="https://github.com/adamaniada/python_dictionnary_password_generator" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 9 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 9" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Web Cloner</h3>
+            <p class="text-gray-700 mb-4">Un outil pour cloner des sites web.</p>
+            <a href="https://github.com/adamaniada/webcloner" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 8 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 8" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">Web Scrapy</h3>
+            <p class="text-gray-700 mb-4">Un outil de scraping web pour extraire des données de sites web.</p>
+            <a href="https://github.com/adamaniada/web_scrapy" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+        <!-- Projet 5 -->
+        <div class="fade-in project-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="Projet 5" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-2">E-Proces</h3>
+            <p class="text-gray-700 mb-4">Automatisez, gérez et optimisez vos flux de travail avec notre plateforme de gestion de processus en ligne. Simplifiez la collaboration, suivez en temps réel et améliorez l'efficacité.</p>
+            <a href="https://github.com/adamaniada/E-Proces" target="_blank" class="text-indigo-600 hover:underline">Voir sur GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Inclure la section Formation -->
-  <div id="education"></div>
+  <!-- Section Expérience Professionnelle -->
+  <section id="experience" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 fade-in">Expérience Professionnelle</h2>
+      <div class="space-y-8">
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Ingénieur des travaux informatiques chez Afrik Lonnya</h3>
+          <p class="mt-2 text-gray-700">Développement d'applications informatiques, support et maintenance corrective et évolutive des applications informatiques, élaboration de dossiers d'appel d'offres.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Web chez YANKTECH</h3>
+          <p class="mt-2 text-gray-700">Création et maintenance de sites web ainsi que de documentations techniques.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Mobile Freelance</h3>
+          <p class="mt-2 text-gray-700">Réalisation d'une plateforme mobile et API dédiée aux demandes de messe.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Full Stack au Ministère de l'Agriculture - DSI</h3>
+          <p class="mt-2 text-gray-700">Conception d'une plateforme pour la gestion de la BUNASOLS.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Full Stack chez Gandyam Ligdi</h3>
+          <p class="mt-2 text-gray-700">Création d'une API de gestion des taux de change avec Express.js et MongoDB.</p>
+        </div>
+        <div class="fade-in p-6 border-l-4 border-indigo-600 bg-white rounded shadow-sm">
+          <h3 class="text-2xl font-bold">Développeur Full Stack Freelance chez Digit Yamb Hub</h3>
+          <p class="mt-2 text-gray-700">Développement d'une application mobile innovante « taxi jaune ».</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Inclure la section Contact -->
-  <div id="contact"></div>
+  <!-- Section Formation -->
+  <section id="education" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-10 fade-in">Formation</h2>
+      <div class="space-y-8">
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Développeurs Fullstack Laravel & Symfony</h3>
+          <p class="mt-2"><span class="font-semibold">Orange Digital Center</span> (<a href="https://www.orangedigitalcenters.com/country/BF/home" target="_blank" class="text-blue-600 hover:underline">ODC</a>) - 2022</p>
+        </div>
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Entrepreneuriat et Techniques de Recherche d'Emploi</h3>
+          <p class="mt-2"><span class="font-semibold">Agence Nationale pour l'Emploi</span> (<a href="http://www.onef.gov.bf/politique/anpe.php" target="_blank" class="text-blue-600 hover:underline">ANPE</a>) - Octobre 2021</p>
+        </div>
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Art Oratoire, Gestion du Temps et Leadership</h3>
+          <p class="mt-2"><span class="font-semibold">La Structure de Formation d'Information et de Communication</span> (<a href="https://m.facebook.com/p/Lasfic-Officiel-100065324956987/" target="_blank" class="text-blue-600 hover:underline">LASFIC</a>) - 2021</p>
+        </div>
+        <div class="fade-in p-6 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-2xl font-bold">Baccalauréat Série D</h3>
+          <p class="mt-2">Lycée Départemental Saint Joseph - 2020</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Inclure le footer -->
-  <div id="footer"></div>
+  <!-- Section Contact -->
+  <section id="contact" class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-6 fade-in">Contact</h2>
+      <p class="text-lg fade-in">Email : <a href="mailto:adamaniadabf@gmail.com" class="text-blue-600 hover:underline">adamaniadabf@gmail.com</a></p>
+      <p class="text-lg fade-in">LinkedIn : <a href="https://linkedin.com/in/adamaniada" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/adamaniada</a></p>
+      <p class="text-lg fade-in">GitHub : <a href="https://github.com/adamaniada" target="_blank" class="text-blue-600 hover:underline">github.com/adamaniada</a></p>
+      <p class="text-lg fade-in">Facebook : <a href="https://facebook.com/adamaniadabf" target="_blank" class="text-blue-600 hover:underline">facebook.com/adamaniadabf</a></p>
+      <p class="text-lg fade-in">Télécharger mon CV : <a href="CV_2025032109554982.pdf" target="_blank" class="text-blue-600 hover:underline" download>Télécharger le CV</a></p>
+    </div>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="py-6 bg-gradient-to-r from-indigo-600 to-blue-500 text-white text-center">
+    <div class="container mx-auto">
+      <p>© <span id="currentYear"></span> NIADA Adama. Tous droits réservés.</p>
+      <button id="themeToggle" class="mt-4 px-4 py-2 bg-gray-200 text-gray-800 rounded btn hover:scale-105 transition">
+        Changer de thème
+      </button>
+    </div>
+  </footer>
 
   <!-- Scripts JavaScript -->
   <script>
-    // Translation object
-    const translations = {
-      fr: {
-        "nav-about": "À propos",
-        "nav-skills": "Compétences",
-        "nav-projects": "Projets",
-        "nav-experience": "Expérience",
-        "nav-education": "Formation",
-        "nav-contact": "Contact",
-        "header-subtitle": "Développeur Full Stack & Créateur d'Expériences Digitales",
-        "about-title": "À propos de moi",
-        "about-content": "Spécialiste en infrastructures numériques avec une expertise en DevOps, sécurité informatique et administration de systèmes. Expérience dans la gestion et l’optimisation des infrastructures cloud (Docker, Kubernetes), l’automatisation des déploiements CI/CD et la sécurisation des systèmes. Capable d’optimiser la fiabilité, la scalabilité et la sécurité des architectures numériques.",
-        "skills-title": "Compétences",
-        "skills-software-title": "Développement logiciel",
-        "skills-software-content": "<li><strong>Web :</strong> Sites responsives, API RESTful, CMS & SEO</li><li><strong>Mobile :</strong> iOS, Android, React Native, Flutter</li><li><strong>Bureautique :</strong> Applications multiplateformes</li><li><strong>Jeux :</strong> 2D/3D avec Unity & Unreal</li><li><strong>Embarqué :</strong> Firmware, microcontrôleurs & IoT</li>",
-        "skills-languages-title": "Langages de programmation",
-        "skills-languages-content": "<li>HTML5, CSS, JavaScript</li><li>Java, Python, PHP</li><li>React, Vue.js, Node.js</li><li>C, C++, C#</li><li>Kotlin, Dart</li>",
-        "skills-tools-title": "Outils & Technologies",
-        "skills-tools-content-1": "<li><strong>API :</strong> REST, GraphQL, SOAP, WebSockets</li><li><strong>Versionning :</strong> Git (GitHub, GitLab, Bitbucket)</li><li><strong>Cloud :</strong> AWS, Google Cloud, Azure, Heroku, Hostinger, Digital Ocean, OVH Cloud</li>",
-        "skills-tools-content-2": "<li><strong>Frameworks :</strong> Laravel, Django, Express, NestJS, Angular, Spring Boot, Symfony</li><li><strong>Mobile :</strong> Expo, React Native, Flutter</li><li><strong>CI/CD :</strong> Jenkins, Travis CI, CircleCI, GitHub Actions</li>",
-        "projects-title": "Mes Projets",
-        "project-juga-privacy": "Un outil qui aide les entreprises à évaluer et à améliorer leur conformité aux réglementations en matière de protection des données.",
-        "project-predictfoot": "Découvrez des prédictions de scores de matchs de football passionnants ! Notre site utilise des modèles avancés pour vous offrir des prédictions fiables.",
-        "project-phone-location": "Un script Python qui récupère des informations sur un numéro de téléphone, y compris sa géolocalisation et son fournisseur de services, et les affiche sur une carte.",
-        "project-campus-archive": "Explorez notre Campus Archive, une collection numérique organisée d'anciens devoirs étudiants. Suivez l'évolution des connaissances et trouvez l'inspiration à chaque clic.",
-        "project-e-proces": "Automatisez, gérez et optimisez vos flux de travail avec notre plateforme de gestion de processus en ligne. Simplifiez la collaboration, suivez en temps réel et améliorez l'efficacité.",
-        "project-patronyme": "Projet 'Patronyme' sur GitHub : Numérisation novatrice des noms. Utilise l'IA et le traitement du langage naturel pour moderniser la gestion, simplifier la saisie et la recherche des patronymes.",
-        "project-github": "Voir sur GitHub",
-        "experience-title": "Expérience Professionnelle",
-        "experience-afrik-lonnya-title": "Ingénieur des travaux informatiques chez Afrik Lonnya",
-        "experience-afrik-lonnya-content": "Développement d'applications informatiques, support et maintenance corrective et évolutive des applications informatiques, élaboration de dossiers d'appel d'offres.",
-        "experience-yanktech-title": "Développeur Web chez YANKTECH",
-        "experience-yanktech-content": "Création et maintenance de sites web ainsi que de documentations techniques.",
-        "experience-freelance-mobile-title": "Développeur Mobile Freelance",
-        "experience-freelance-mobile-content": "Réalisation d'une plateforme mobile et API dédiée aux demandes de messe.",
-        "experience-ministry-title": "Développeur Full Stack au Ministère de l'Agriculture - DSI",
-        "experience-ministry-content": "Conception d'une plateforme pour la gestion de la BUNASOLS.",
-        "experience-gandyam-title": "Développeur Full Stack chez Gandyam Ligdi",
-        "experience-gandyam-content": "Création d'une API de gestion des taux de change avec Express.js et MongoDB.",
-        "experience-digit-yamb-title": "Développeur Full Stack Freelance chez Digit Yamb Hub",
-        "experience-digit-yamb-content": "Développement d'une application mobile innovante « taxi jaune ».",
-        "education-title": "Formation",
-        "education-odc-title": "Développeurs Fullstack Laravel & Symfony",
-        "education-odc-content": "<span class='font-semibold'>Orange Digital Center</span> (<a href='https://www.orangedigitalcenters.com/country/BF/home' target='_blank' class='text-blue-600 hover:underline'>ODC</a>) - 2022",
-        "education-anpe-title": "Entrepreneuriat et Techniques de Recherche d'Emploi",
-        "education-anpe-content": "<span class='font-semibold'>Agence Nationale pour l'Emploi</span> (<a href='http://www.onef.gov.bf/politique/anpe.php' target='_blank' class='text-blue-600 hover:underline'>ANPE</a>) - Octobre 2021",
-        "education-lasfic-title": "Art Oratoire, Gestion du Temps et Leadership",
-        "education-lasfic-content": "<span class='font-semibold'>La Structure de Formation d'Information et de Communication</span> (<a href='https://m.facebook.com/p/Lasfic-Officiel-100065324956987/' target='_blank' class='text-blue-600 hover:underline'>LASFIC</a>) - 2021",
-        "education-bac-title": "Baccalauréat Série D",
-        "education-bac-content": "Lycée Départemental Saint Joseph - 2020",
-        "contact-title": "Contact",
-        "contact-email": "Email : <a href='mailto:adamaniadabf@gmail.com' class='text-blue-600 hover:underline'>adamaniadabf@gmail.com</a>",
-        "contact-linkedin": "LinkedIn : <a href='https://linkedin.com/in/adamaniada' target='_blank' class='text-blue-600 hover:underline'>linkedin.com/in/adamaniada</a>",
-        "contact-github": "GitHub : <a href='https://github.com/adamaniada' target='_blank' class='text-blue-600 hover:underline'>github.com/adamaniada</a>",
-        "contact-facebook": "Facebook : <a href='https://facebook.com/adamaniadabf' target='_blank' class='text-blue-600 hover:underline'>facebook.com/adamaniadabf</a>",
-        "contact-cv": "Télécharger mon CV : <a href='CV_2025032109554982.pdf' target='_blank' class='text-blue-600 hover:underline' download>Télécharger le CV</a>",
-        "footer-copyright": "© <span id='currentYear'></span> NIADA Adama. Tous droits réservés.",
-        "footer-theme-toggle": "Changer de thème"
-      },
-      en: {
-        "nav-about": "About",
-        "nav-skills": "Skills",
-        "nav-projects": "Projects",
-        "nav-experience": "Experience",
-        "nav-education": "Education",
-        "nav-contact": "Contact",
-        "header-subtitle": "Full Stack Developer & Digital Experience Creator",
-        "about-title": "About Me",
-        "about-content": "Digital infrastructure specialist with expertise in DevOps, IT security, and system administration. Experience in managing and optimizing cloud infrastructures (Docker, Kubernetes), automating CI/CD deployments, and securing systems. Capable of optimizing the reliability, scalability, and security of digital architectures.",
-        "skills-title": "Skills",
-        "skills-software-title": "Software Development",
-        "skills-software-content": "<li><strong>Web :</strong> Responsive sites, RESTful APIs, CMS & SEO</li><li><strong>Mobile :</strong> iOS, Android, React Native, Flutter</li><li><strong>Desktop :</strong> Cross-platform applications</li><li><strong>Games :</strong> 2D/3D with Unity & Unreal</li><li><strong>Embedded :</strong> Firmware, microcontrollers & IoT</li>",
-        "skills-languages-title": "Programming Languages",
-        "skills-languages-content": "<li>HTML5, CSS, JavaScript</li><li>Java, Python, PHP</li><li>React, Vue.js, Node.js</li><li>C, C++, C#</li><li>Kotlin, Dart</li>",
-        "skills-tools-title": "Tools & Technologies",
-        "skills-tools-content-1": "<li><strong>API :</strong> REST, GraphQL, SOAP, WebSockets</li><li><strong>Version Control :</strong> Git (GitHub, GitLab, Bitbucket)</li><li><strong>Cloud :</strong> AWS, Google Cloud, Azure, Heroku, Hostinger, Digital Ocean, OVH Cloud</li>",
-        "skills-tools-content-2": "<li><strong>Frameworks :</strong> Laravel, Django, Express, NestJS, Angular, Spring Boot, Symfony</li><li><strong>Mobile :</strong> Expo, React Native, Flutter</li><li><strong>CI/CD :</strong> Jenkins, Travis CI, CircleCI, GitHub Actions</li>",
-        "projects-title": "My Projects",
-        "project-juga-privacy": "A tool that helps companies evaluate and improve their compliance with data protection regulations.",
-        "project-predictfoot": "Discover exciting football match score predictions! Our site uses advanced models to provide reliable predictions.",
-        "project-phone-location": "A Python script that retrieves information about a phone number, including its geolocation and service provider, and displays it on a map.",
-        "project-campus-archive": "Explore our Campus Archive, an organized digital collection of former student assignments. Follow the evolution of knowledge and find inspiration with every click.",
-        "project-e-proces": "Automate, manage, and optimize your workflows with our online process management platform. Simplify collaboration, track in real-time, and improve efficiency.",
-        "project-patronyme": "Project 'Patronyme' on GitHub: Innovative digitization of names. Uses AI and natural language processing to modernize name management, simplify entry, and search for surnames.",
-        "project-github": "View on GitHub",
-        "experience-title": "Professional Experience",
-        "experience-afrik-lonnya-title": "IT Engineer at Afrik Lonnya",
-        "experience-afrik-lonnya-content": "Development of IT applications, support, and corrective and evolutionary maintenance of IT applications, preparation of tender documents.",
-        "experience-yanktech-title": "Web Developer at YANKTECH",
-        "experience-yanktech-content": "Creation and maintenance of websites and technical documentation.",
-        "experience-freelance-mobile-title": "Freelance Mobile Developer",
-        "experience-freelance-mobile-content": "Development of a mobile platform and API dedicated to mass requests.",
-        "experience-ministry-title": "Full Stack Developer at the Ministry of Agriculture - DSI",
-        "experience-ministry-content": "Design of a platform for managing BUNASOLS.",
-        "experience-gandyam-title": "Full Stack Developer at Gandyam Ligdi",
-        "experience-gandyam-content": "Creation of an API for managing exchange rates with Express.js and MongoDB.",
-        "experience-digit-yamb-title": "Freelance Full Stack Developer at Digit Yamb Hub",
-        "experience-digit-yamb-content": "Development of an innovative mobile application 'yellow taxi'.",
-        "education-title": "Education",
-        "education-odc-title": "Fullstack Developers Laravel & Symfony",
-        "education-odc-content": "<span class='font-semibold'>Orange Digital Center</span> (<a href='https://www.orangedigitalcenters.com/country/BF/home' target='_blank' class='text-blue-600 hover:underline'>ODC</a>) - 2022",
-        "education-anpe-title": "Entrepreneurship and Job Search Techniques",
-        "education-anpe-content": "<span class='font-semibold'>National Employment Agency</span> (<a href='http://www.onef.gov.bf/politique/anpe.php' target='_blank' class='text-blue-600 hover:underline'>ANPE</a>) - October 2021",
-        "education-lasfic-title": "Public Speaking, Time Management and Leadership",
-        "education-lasfic-content": "<span class='font-semibold'>The Training Structure for Information and Communication</span> (<a href='https://m.facebook.com/p/Lasfic-Officiel-100065324956987/' target='_blank' class='text-blue-600 hover:underline'>LASFIC</a>) - 2021",
-        "education-bac-title": "Baccalaureate Series D",
-        "education-bac-content": "Lycée Départemental Saint Joseph - 2020",
-        "contact-title": "Contact",
-        "contact-email": "Email: <a href='mailto:adamaniadabf@gmail.com' class='text-blue-600 hover:underline'>adamaniadabf@gmail.com</a>",
-        "contact-linkedin": "LinkedIn: <a href='https://linkedin.com/in/adamaniada' target='_blank' class='text-blue-600 hover:underline'>linkedin.com/in/adamaniada</a>",
-        "contact-github": "GitHub: <a href='https://github.com/adamaniada' target='_blank' class='text-blue-600 hover:underline'>github.com/adamaniada</a>",
-        "contact-facebook": "Facebook: <a href='https://facebook.com/adamaniadabf' target='_blank' class='text-blue-600 hover:underline'>facebook.com/adamaniadabf</a>",
-        "contact-cv": "Download my CV: <a href='CV_2025032109554982.pdf' target='_blank' class='text-blue-600 hover:underline' download>Download CV</a>",
-        "footer-copyright": "© <span id='currentYear'></span> NIADA Adama. All rights reserved.",
-        "footer-theme-toggle": "Change Theme"
-      },
-      ru: {
-        "nav-about": "Обо мне",
-        "nav-skills": "Навыки",
-        "nav-projects": "Проекты",
-        "nav-experience": "Опыт",
-        "nav-education": "Образование",
-        "nav-contact": "Контакты",
-        "header-subtitle": "Фулл-стек разработчик и создатель цифровых решений",
-        "about-title": "Обо мне",
-        "about-content": "Специалист по цифровым инфраструктурам с опытом в DevOps, кибербезопасности и администрировании систем. Имею опыт управления и оптимизации облачных инфраструктур (Docker, Kubernetes), автоматизации CI/CD и обеспечения безопасности систем. Способен оптимизировать надежность, масштабируемость и безопасность цифровых архитектур.",
-        "skills-title": "Навыки",
-        "skills-software-title": "Разработка программного обеспечения",
-        "skills-software-content": "<li><strong>Веб :</strong> Адаптивные сайты, API RESTful, CMS и SEO</li><li><strong>Мобильные :</strong> iOS, Android, React Native, Flutter</li><li><strong>Офисные :</strong> Кроссплатформенные приложения</li><li><strong>Игры :</strong> 2D/3D с Unity и Unreal</li><li><strong>Встроенные :</strong> Прошивки, микроконтроллеры и IoT</li>",
-        "skills-languages-title": "Языки программирования",
-        "skills-languages-content": "<li>HTML5, CSS, JavaScript</li><li>Java, Python, PHP</li><li>React, Vue.js, Node.js</li><li>C, C++, C#</li><li>Kotlin, Dart</li>",
-        "skills-tools-title": "Инструменты и технологии",
-        "skills-tools-content-1": "<li><strong>API :</strong> REST, GraphQL, SOAP, WebSockets</li><li><strong>Контроль версий :</strong> Git (GitHub, GitLab, Bitbucket)</li><li><strong>Облако :</strong> AWS, Google Cloud, Azure, Heroku, Hostinger, Digital Ocean, OVH Cloud</li>",
-        "skills-tools-content-2": "<li><strong>Фреймворки :</strong> Laravel, Django, Express, NestJS, Angular, Spring Boot, Symfony</li><li><strong>Мобильные :</strong> Expo, React Native, Flutter</li><li><strong>CI/CD :</strong> Jenkins, Travis CI, CircleCI, GitHub Actions</li>",
-        "projects-title": "Мои проекты",
-        "project-juga-privacy": "Инструмент, помогающий компаниям оценивать и улучшать соответствие нормам защиты данных.",
-        "project-predictfoot": "Откройте для себя прогнозы результатов футбольных матчей! Наш сайт использует передовые модели для надежных прогнозов.",
-        "project-phone-location": "Скрипт на Python, который получает информацию о номере телефона, включая геолокацию и оператора, и отображает её на карте.",
-        "project-campus-archive": "Исследуйте наш цифровой архив кампуса — организованную коллекцию студенческих работ. Отслеживайте развитие знаний и находите вдохновение.",
-        "project-e-proces": "Автоматизируйте, управляйте и оптимизируйте рабочие процессы с нашей онлайн-платформой. Упрощайте сотрудничество и повышайте эффективность.",
-        "project-patronyme": "Проект 'Patronyme' на GitHub: инновационная цифровизация имен. Использует ИИ и обработку естественного языка для модернизации управления именами.",
-        "project-github": "Посмотреть на GitHub",
-        "experience-title": "Профессиональный опыт",
-        "experience-afrik-lonnya-title": "Инженер по информационным технологиям в Afrik Lonnya",
-        "experience-afrik-lonnya-content": "Разработка приложений, поддержка и корректирующее/эволюционное обслуживание программ, подготовка тендерной документации.",
-        "experience-yanktech-title": "Веб-разработчик в YANKTECH",
-        "experience-yanktech-content": "Создание и поддержка веб-сайтов, а также технической документации.",
-        "experience-freelance-mobile-title": "Фриланс-разработчик мобильных приложений",
-        "experience-freelance-mobile-content": "Создание мобильной платформы и API для обработки запросов на мессы.",
-        "experience-ministry-title": "Фулл-стек разработчик в Министерстве сельского хозяйства - DSI",
-        "experience-ministry-content": "Разработка платформы для управления BUNASOLS.",
-        "experience-gandyam-title": "Фулл-стек разработчик в Gandyam Ligdi",
-        "experience-gandyam-content": "Создание API для управления курсами валют с использованием Express.js и MongoDB.",
-        "experience-digit-yamb-title": "Фриланс фулл-стек разработчик в Digit Yamb Hub",
-        "experience-digit-yamb-content": "Разработка инновационного мобильного приложения «Желтое такси».",
-        "education-title": "Образование",
-        "education-odc-title": "Фулл-стек разработка на Laravel и Symfony",
-        "education-odc-content": "<span class='font-semibold'>Orange Digital Center</span> (<a href='https://www.orangedigitalcenters.com/country/BF/home' target='_blank' class='text-blue-600 hover:underline'>ODC</a>) - 2022",
-        "education-anpe-title": "Предпринимательство и техники поиска работы",
-        "education-anpe-content": "<span class='font-semibold'>Национальное агентство по трудоустройству</span> (<a href='http://www.onef.gov.bf/politique/anpe.php' target='_blank' class='text-blue-600 hover:underline'>ANPE</a>) - Октябрь 2021",
-        "education-lasfic-title": "Ораторское искусство, управление временем и лидерство",
-        "education-lasfic-content": "<span class='font-semibold'>Структура обучения, информации и коммуникации</span> (<a href='https://m.facebook.com/p/Lasfic-Officiel-100065324956987/' target='_blank' class='text-blue-600 hover:underline'>LASFIC</a>) - 2021",
-        "education-bac-title": "Бакалавр, серия D",
-        "education-bac-content": "Департаментский лицей Святого Иосифа - 2020",
-        "contact-title": "Контакты",
-        "contact-email": "Email: <a href='mailto:adamaniadabf@gmail.com' class='text-blue-600 hover:underline'>adamaniadabf@gmail.com</a>",
-        "contact-linkedin": "LinkedIn: <a href='https://linkedin.com/in/adamaniada' target='_blank' class='text-blue-600 hover:underline'>linkedin.com/in/adamaniada</a>",
-        "contact-github": "GitHub: <a href='https://github.com/adamaniada' target='_blank' class='text-blue-600 hover:underline'>github.com/adamaniada</a>",
-        "contact-facebook": "Facebook: <a href='https://facebook.com/adamaniadabf' target='_blank' class='text-blue-600 hover:underline'>facebook.com/adamaniadabf</a>",
-        "contact-cv": "Скачать мое резюме: <a href='CV_2025032109554982.pdf' target='_blank' class='text-blue-600 hover:underline' download>Скачать резюме</a>",
-        "footer-copyright": "© <span id='currentYear'></span> НИАДА Адама. Все права защищены.",
-        "footer-theme-toggle": "Сменить тему"
-      }
-    };
-
-    // Function to update content based on language
-    function updateLanguage(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-          if (element.tagName === 'UL') {
-            element.innerHTML = translations[lang][key];
-          } else {
-            element.innerHTML = translations[lang][key];
-          }
-        }
-      });
-      // Update HTML lang attribute
-      document.documentElement.lang = lang;
-      // Update meta description
-      document.querySelector('meta[name="description"]').content = lang === 'fr' 
-        ? "Portfolio de NIADA Adama, développeur full stack spécialisé en développement web, mobile et API."
-        : lang === 'en'
-          ? "Portfolio of NIADA Adama, full stack developer specialized in web, mobile, and API development."
-          : "Портфолио НИАДА Адама, фулл-стек разработчика, специализирующегося на веб-разработке, мобильных приложениях и API.";
-      // Update title
-      document.title = lang === 'fr' 
-        ? "NIADA Adama - Développeur Full Stack"
-        : lang === 'en'
-          ? "NIADA Adama - Full Stack Developer"
-          : "НИАДА Адама - Фулл-стек разработчик";
-      // Update current year in footer
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-    }
-
-    // Initialize language
-    const languageSelect = document.getElementById('languageSelect');
-    languageSelect.addEventListener('change', (e) => {
-      updateLanguage(e.target.value);
-    });
-
-    // Set default language to French
-    updateLanguage('fr');
-
     // Actualisation de l'année
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
@@ -262,11 +376,11 @@
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       if (document.body.classList.contains('dark-mode')) {
-        themeToggle.textContent = translations[document.documentElement.lang]['footer-theme-toggle'] === "Changer de thème" ? "Mode clair" : "Светлый режим";
+        themeToggle.textContent = "Mode clair";
         themeToggle.classList.replace('bg-gray-200', 'bg-gray-700');
         themeToggle.classList.replace('text-gray-800', 'text-gray-100');
       } else {
-        themeToggle.textContent = translations[document.documentElement.lang]['footer-theme-toggle'];
+        themeToggle.textContent = "Changer de thème";
         themeToggle.classList.replace('bg-gray-700', 'bg-gray-200');
         themeToggle.classList.replace('text-gray-100', 'text-gray-800');
       }
@@ -283,20 +397,6 @@
       });
     }, { threshold: 0.1 });
     fadeInElements.forEach(el => observer.observe(el));
-  </script>
-
-  <!-- Script pour inclure les fichiers -->
-  <script>
-    $(function(){
-      $("#header").load("public/header.html");
-      $("#about").load("public/about.html");
-      $("#skills").load("public/skills.html");
-      $("#projects").load("public/projects.html");
-      $("#experience").load("public/experience.html");
-      $("#education").load("public/education.html");
-      $("#contact").load("public/contact.html");
-      $("#footer").load("public/footer.html");
-    });
   </script>
 </body>
 </html>
